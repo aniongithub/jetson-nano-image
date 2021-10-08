@@ -150,4 +150,4 @@
 - name: Copy extra files to rootfs
   copy:
     src: files/
-    dst: {{ lookup('env','JETSON_ROOTFS_DIR') }}/
+    dst: "{{ lookup('env','JETSON_ROOTFS_DIR') }}/"
