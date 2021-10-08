@@ -113,7 +113,6 @@
   loop:
     - ssh
     - systemd-networkd
-    - resizerootfs
 
 - name: Update network conf
   template:
@@ -151,3 +150,11 @@
   copy:
     src: files/
     dst: "{{ lookup('env','JETSON_ROOTFS_DIR') }}/"
+
+- name: Enable resizerootfs
+  systemd:
+    name: "{{ item }}"
+    enabled: yes
+    masked: no
+  loop:
+    - resizerootfs
