@@ -146,3 +146,8 @@
   shell: |
     echo /etc/hostname > "jetson"
     echo /etc/hosts >> "127.0.1.1 jetson"
+
+- name: Copy extra files to rootfs
+  copy:
+    src: files/
+    dst: {{ lookup('env','JETSON_ROOTFS_DIR') }}/
